@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>to
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#10233f">
@@ -185,5 +185,308 @@ function handleRegistration(e){
 }
 init();
 </script>
+  
+<!-- BIASHARA CONNECT KENYA CHATBOT -->
+<style>
+  #bck-chat-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 99999;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 19px;
+    background: #082b5c;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px #0004;
+    cursor: pointer;
+  }
+
+  #bck-chat-window {
+    display: none;
+    position: fixed;
+    right: 14px;
+    bottom: 82px;
+    width: min(350px, calc(100vw - 28px));
+    height: 440px;
+    max-height: calc(100dvh - 110px);
+    z-index: 99999;
+    background: white;
+    border: 1px solid #d8e1ed;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px #0003;
+    font-family: Arial, sans-serif;
+  }
+
+  #bck-chat-header {
+    background: #082b5c;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #bck-chat-header small {
+    display: block;
+    margin-top: 4px;
+    color: #dbeafe;
+  }
+
+  #bck-chat-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  #bck-chat-messages {
+    height: calc(100% - 145px);
+    overflow-y: auto;
+    padding: 12px;
+    background: #f4f7fb;
+  }
+
+  .bck-message {
+    max-width: 88%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .bck-bot {
+    background: white;
+    border: 1px solid #e0e7ef;
+    color: #172033;
+  }
+
+  .bck-user {
+    background: #dbeafe;
+    color: #082b5c;
+    margin-left: auto;
+  }
+
+  #bck-chat-form {
+    display: flex;
+    gap: 7px;
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  #bck-chat-input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  #bck-chat-form button {
+    border: none;
+    background: #082b5c;
+    color: white;
+    border-radius: 20px;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  .bck-quick {
+    display: inline-block;
+    border: 1px solid #b9cbe2;
+    border-radius: 18px;
+    padding: 7px 10px;
+    margin: 4px 3px 0 0;
+    background: white;
+    color: #082b5c;
+    cursor: pointer;
+    font-size: 12px;
+  }
+</style>
+
+<button id="bck-chat-button" type="button"
+  aria-label="Open customer help chat">
+  💬 Ask Us
+</button>
+
+<div id="bck-chat-window" role="dialog"
+  aria-label="Biashara Connect customer assistant">
+  <div id="bck-chat-header">
+    <div>
+      <strong>Biashara Assistant 🇰🇪</strong>
+      <small>Here to help you discover and connect</small>
+    </div>
+    <button id="bck-chat-close" type="button"
+      aria-label="Close chat">×</button>
+  </div>
+
+  <div id="bck-chat-messages" aria-live="polite">
+    <div class="bck-message bck-bot">
+      Hello! 👋 Welcome to Biashara Connect Kenya.
+      How can I help you today?
+      <br><br>
+      <button class="bck-quick" data-question="find">
+        Find a business
+      </button>
+      <button class="bck-quick" data-question="register">
+        Register my business
+      </button>
+      <button class="bck-quick" data-question="categories">
+        Business categories
+      </button>
+      <button class="bck-quick" data-question="contact">
+        Contact support
+      </button>
+    </div>
+  </div>
+
+  <form id="bck-chat-form">
+    <input id="bck-chat-input" type="text"
+      placeholder="Type your question..."
+      aria-label="Type your question" required>
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+(function () {
+  const chatButton = document.getElementById("bck-chat-button");
+  const chatWindow = document.getElementById("bck-chat-window");
+  const closeButton = document.getElementById("bck-chat-close");
+  const messages = document.getElementById("bck-chat-messages");
+  const form = document.getElementById("bck-chat-form");
+  const input = document.getElementById("bck-chat-input");
+
+  chatButton.addEventListener("click", function () {
+    chatWindow.style.display = "block";
+    chatButton.style.display = "none";
+    input.focus();
+  });
+
+  closeButton.addEventListener("click", function () {
+    chatWindow.style.display = "none";
+    chatButton.style.display = "block";
+  });
+
+  function addMessage(text, sender) {
+    const message = document.createElement("div");
+    message.className = "bck-message " +
+      (sender === "user" ? "bck-user" : "bck-bot");
+    message.textContent = text;
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function answerQuestion(question) {
+    const q = question.toLowerCase();
+
+    if (q.includes("register") || q.includes("list my") ||
+        q.includes("add my business") || q.includes("advertise")) {
+      return "To register your business, look for the business registration form on this website. Enter your business details and follow the instructions shown. If you need assistance, tap Contact support.";
+    }
+
+    if (q.includes("find") || q.includes("search") ||
+        q.includes("looking for") || q.includes("where can i")) {
+      return "You can find businesses using the directory search and the category or county filters. Try searching for a business name, town, or service. Listings shown on the website may need verification before you rely on them.";
+    }
+
+    if (q.includes("category") || q.includes("type of business") ||
+        q.includes("categories")) {
+      return "You can explore categories such as hotels, restaurants, salons, shops, supermarkets, schools, hospitals, pharmacies, hardware stores, timber yards, agrovets, technology and more. Use the directory filters to explore available listings.";
+    }
+
+    if (q.includes("county") || q.includes("location") ||
+        q.includes("town") || q.includes("near me")) {
+      return "Use the county filter or search for a town to narrow your results. Please check each listing's location and contact details before visiting.";
+    }
+
+    if (q.includes("cost") || q.includes("price") ||
+        q.includes("fee") || q.includes("payment")) {
+      return "Please check the website's current registration instructions for any listing fees. Do not assume a listing is paid or free unless the website clearly states the terms.";
+    }
+
+    if (q.includes("contact") || q.includes("support") ||
+        q.includes("whatsapp") || q.includes("help")) {
+      return "You can contact the website team through WhatsApp using the button below.";
+    }
+
+    if (q.includes("hello") || q.includes("hi") ||
+        q.includes("habari") || q.includes("hey")) {
+      return "Hello! Karibu Biashara Connect Kenya. Would you like to find a business, register your business, explore categories, or contact support?";
+    }
+
+    return "I can help you find businesses, explore categories, understand business registration, and locate support. Try asking: How do I register my business? Or tap Contact support.";
+  }
+
+  function showQuickQuestion(question) {
+    let text = question;
+
+    if (question === "find") text = "How do I find a business?";
+    if (question === "register") text = "How do I register my business?";
+    if (question === "categories") text = "What business categories are available?";
+    if (question === "contact") text = "How do I contact support?";
+
+    addMessage(text, "user");
+
+    if (question === "contact") {
+      addMessage("Tap the WhatsApp support link below to message the website team.", "bot");
+
+      const link = document.createElement("a");
+      link.href = "https://wa.me/254796914618";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Message us on WhatsApp";
+      link.style.cssText =
+        "display:block;padding:10px;color:#075e54;font-weight:bold;text-align:center;";
+      messages.appendChild(link);
+      messages.scrollTop = messages.scrollHeight;
+      return;
+    }
+
+    addMessage(answerQuestion(text), "bot");
+  }
+
+  messages.addEventListener("click", function (event) {
+    const button = event.target.closest(".bck-quick");
+    if (button) showQuickQuestion(button.dataset.question);
+  });
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question) return;
+
+    addMessage(question, "user");
+    input.value = "";
+
+    const answer = answerQuestion(question);
+    addMessage(answer, "bot");
+
+    if (question.toLowerCase().includes("contact") ||
+        question.toLowerCase().includes("whatsapp") ||
+        question.toLowerCase().includes("support")) {
+      const link = document.createElement("a");
+      link.href = "https://wa.me/254796914618";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "📲 Contact us on WhatsApp";
+      link.style.cssText =
+        "display:block;padding:10px;color:#075e54;font-weight:bold;text-align:center;";
+      messages.appendChild(link);
+      messages.scrollTop = messages.scrollHeight;
+    }
+  });
+})();
+</script>
+<!-- END BIASHARA CONNECT KENYA CHATBOT -->
+  
 </body>
 </html>
