@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10233f">
+<title>Biashara Connect Kenya | Discover. Connect. Grow.</title>
+<style>
+:root{--navy:#10233f;--blue:#174d83;--gold:#f2bd4b;--red:#d94b43;--ink:#172338;--muted:#64748b;--bg:#f4f7fb;--white:#fff;--line:#e2e8f0;--green:#16794b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}button,input,select,textarea{font:inherit}button,a{cursor:pointer}a{color:inherit}.hidden{display:none!important}
+.topbar{background:var(--navy);color:white;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem}.logo{display:grid;place-items:center;width:42px;height:42px;background:var(--gold);color:var(--navy);font-size:1.4rem;font-weight:900;border-radius:12px}.tagline{font-size:.8rem;color:#dce7f4}.navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks button{background:transparent;border:1px solid #52657d;color:#fff;padding:8px 12px;border-radius:9px}.navlinks button:hover{background:#233d5f}
+.cover{min-height:calc(100vh - 66px);background:radial-gradient(circle at 85% 20%,#2b6390 0,transparent 30%),linear-gradient(135deg,#0d1c32,#174d83);color:white;padding:54px 5% 40px;display:flex;align-items:center;overflow:hidden}.cover-inner{max-width:1120px;margin:auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}.eyebrow{display:inline-block;color:#172338;background:var(--gold);font-size:.78rem;font-weight:800;letter-spacing:.08em;padding:7px 12px;border-radius:99px}.cover h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.04;margin:20px 0 14px;max-width:720px}.cover h1 span{color:var(--gold)}.cover p{font-size:1.08rem;max-width:610px;color:#e3edf8}.btn{border:0;border-radius:10px;padding:12px 18px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}.btn-primary{background:var(--gold);color:var(--navy)}.btn-secondary{background:#fff;color:var(--navy)}.btn-outline{background:white;color:var(--navy);border:1px solid var(--line)}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}.cover-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.cover-note{font-size:.83rem!important;color:#c4d6e9!important}.illustration{min-height:340px;display:grid;place-items:center;position:relative}.city-card{width:min(100%,420px);background:#ffffff12;border:1px solid #ffffff35;border-radius:24px;padding:24px;backdrop-filter:blur(4px);box-shadow:0 24px 60px #0003}.city-card h2{margin:0 0 14px;font-size:1.3rem}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.tile{background:white;color:var(--navy);border-radius:15px;padding:18px 12px;text-align:center;font-weight:800}.tile .emoji{font-size:2rem;display:block;margin-bottom:5px}.city-caption{color:#e2eaf5;font-size:.82rem;margin-top:15px}
+main{max-width:1200px;margin:auto;padding:28px 5% 60px}.welcome{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.welcome h2{margin:0 0 4px}.welcome p{margin:0;color:var(--muted)}.stats{display:flex;gap:12px;flex-wrap:wrap}.stat{background:#f0f5fa;padding:10px 14px;border-radius:10px;font-size:.84rem}.stat strong{display:block;font-size:1.1rem;color:var(--blue)}
+.search-panel{background:white;padding:20px;border-radius:18px;border:1px solid var(--line);margin-bottom:22px}.search-panel h2,.section-heading h2{margin:0 0 6px}.search-panel p{margin:0 0 16px;color:var(--muted);font-size:.92rem}.filters{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px}.field{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:12px;background:white;color:var(--ink);min-width:0}.field:focus{outline:2px solid #91bce4;border-color:var(--blue)}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:28px 0 14px;flex-wrap:wrap}.section-heading p{margin:0;color:var(--muted);font-size:.9rem}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:25px}.category{border:1px solid var(--line);background:white;border-radius:14px;padding:16px 12px;text-align:center;color:var(--ink);font-weight:700}.category .emoji{font-size:1.8rem;display:block;margin-bottom:5px}.category small{color:var(--muted);font-weight:400}.category.active,.category:hover{border-color:var(--blue);box-shadow:0 0 0 2px #174d8312;background:#f5f9ff}
+.listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.listing{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}.listing-top{display:flex;gap:12px;align-items:flex-start}.listing-icon{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;background:#edf4fb;border-radius:13px;font-size:1.7rem}.listing h3{margin:0;font-size:1.05rem;overflow-wrap:anywhere}.listing .type{font-size:.8rem;color:var(--blue);font-weight:700}.listing p{margin:0;color:var(--muted);font-size:.9rem}.listing .location{font-size:.84rem;color:#475569}.demo-label{font-size:.72rem;color:#8a4b00;background:#fff3d6;border-radius:6px;padding:4px 7px;display:inline-block;align-self:flex-start}.listing-actions{display:flex;gap:8px;margin-top:auto;padding-top:6px}.listing-actions a,.listing-actions button{flex:1;text-align:center;border-radius:9px;padding:10px 8px;text-decoration:none;font-size:.85rem;font-weight:700;border:0}.contact-btn{background:#e2f7eb;color:#12633d}.details-btn{background:#edf2f7;color:var(--navy)}.empty{grid-column:1/-1;text-align:center;background:white;border:1px dashed #b7c4d4;border-radius:14px;padding:34px;color:var(--muted)}
+.register{margin-top:34px;background:white;border:1px solid var(--line);border-radius:18px;padding:24px}.register-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.register label{display:block;font-size:.86rem;font-weight:700;margin-bottom:5px}.register .full{grid-column:1/-1}.register textarea{min-height:100px;resize:vertical}.fineprint{font-size:.82rem;color:var(--muted)}.notice{padding:12px 14px;background:#fff6df;border:1px solid #f5d78e;border-radius:10px;font-size:.85rem;color:#754e00;margin:12px 0}.receipt{margin-top:18px;padding:18px;border:2px solid var(--green);border-radius:14px;background:#f1fbf5}.receipt h3{margin:0 0 8px;color:var(--green)}.receipt dl{display:grid;grid-template-columns:150px 1fr;gap:6px;margin:12px 0}.receipt dt{font-weight:700}.receipt dd{margin:0;overflow-wrap:anywhere}.receipt-actions{display:flex;gap:10px;flex-wrap:wrap}
+footer{background:#0c1a2d;color:#d6e2ef;padding:28px 5%;text-align:center}footer p{margin:6px 0;font-size:.86rem}.footer-brand{font-weight:800;font-size:1.1rem;color:white}
+@media(max-width:800px){.cover-inner{grid-template-columns:1fr}.illustration{min-height:260px}.cover{padding-top:38px}.filters{grid-template-columns:1fr 1fr}.filters .search-wide{grid-column:1/-1}.listing-grid{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.topbar{padding:10px 4%}.navlinks{width:100%}.navlinks button{flex:1}.cover{padding:34px 5%}.cover h1{font-size:2.55rem}.illustration{min-height:230px}.city-card{padding:16px}.tile{padding:12px 8px}.filters{grid-template-columns:1fr}.filters .search-wide{grid-column:auto}.listing-grid{grid-template-columns:1fr}.register-grid{grid-template-columns:1fr}.register .full{grid-column:auto}.welcome{padding:17px}.receipt dl{grid-template-columns:1fr;gap:2px}.receipt dd{margin-bottom:8px}}
+@media print{body *{visibility:hidden}.receipt,.receipt *{visibility:visible}.receipt{position:absolute;left:0;top:0;width:100%;border:1px solid #333;background:white}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">BC</div><div>BIASHARA CONNECT KENYA<div class="tagline">Discover. Connect. Grow.</div></div></div>
+  <nav class="navlinks" aria-label="Main navigation">
+    <button type="button" onclick="showDirectory()">Explore directory</button>
+    <button type="button" onclick="showRegistration()">List your business</button>
+  </nav>
+</header>
+
+<section class="cover" id="cover">
+  <div class="cover-inner">
+    <div>
+      <span class="eyebrow">KENYAN BUSINESSES, ONE DIRECTORY</span>
+      <h1>Discover local businesses. <span>Grow together.</span></h1>
+      <p>Find shops, schools, hospitals, supermarkets, hotels, agrovets, hardware stores and more across Kenya. Help customers discover your business and connect with you.</p>
+      <div class="cover-actions">
+        <button class="btn btn-primary" type="button" onclick="showDirectory()">Explore the Directory →</button>
+        <button class="btn btn-secondary" type="button" onclick="showRegistration()">Register a Business</button>
+      </div>
+      <p class="cover-note">A growing directory for businesses across all 47 counties of Kenya.</p>
+    </div>
+    <div class="illustration" aria-hidden="true">
+      <div class="city-card">
+        <h2>One place. Many possibilities.</h2>
+        <div class="tiles">
+          <div class="tile"><span class="emoji">🏪</span>Shops</div>
+          <div class="tile"><span class="emoji">🏫</span>Schools</div>
+          <div class="tile"><span class="emoji">🏥</span>Healthcare</div>
+          <div class="tile"><span class="emoji">🌱</span>Agriculture</div>
+        </div>
+        <div class="city-caption">Connecting customers with businesses in their communities.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="directoryApp" class="hidden">
+  <section class="welcome">
+    <div><h2>Explore Kenyan businesses</h2><p>Search by name, service, product, town or county.</p></div>
+    <div class="stats"><div class="stat"><strong>47</strong>Counties</div><div class="stat"><strong>Many</strong>Categories</div><div class="stat"><strong>Free</strong>To explore</div></div>
+  </section>
+
+  <section class="search-panel" id="searchPanel">
+    <h2>Find a business</h2><p>Use the search box or choose a category and county to narrow your results.</p>
+    <div class="filters">
+      <input id="searchInput" class="field search-wide" type="search" placeholder="Search business, product or service..." aria-label="Search businesses">
+      <select id="categoryFilter" class="field" aria-label="Filter by category"><option value="">All categories</option></select>
+      <select id="countyFilter" class="field" aria-label="Filter by county"><option value="">All counties</option></select>
+      <button class="btn btn-primary" type="button" onclick="resetFilters()">Reset</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-heading"><div><h2>Browse categories</h2><p>Choose a category to explore listings.</p></div></div>
+    <div class="categories" id="categoryTiles"></div>
+  </section>
+
+  <section>
+    <div class="section-heading"><div><h2>Business directory</h2><p id="resultCount">Showing demonstration listings</p></div></div>
+    <div class="listing-grid" id="listingGrid"></div>
+    <p class="fineprint">Demo notice: listings marked “DEMO LISTING” are examples only, not verified real businesses. Confirm details before relying on any listing.</p>
+  </section>
+
+  <section class="register" id="register">
+    <h2>List your business</h2>
+    <p>Submit your business details for review. Please provide accurate information and permission to publish your contact details.</p>
+    <div class="notice">This prototype creates an on-screen confirmation and can open WhatsApp with a pre-filled message. It does not store submissions in a central database or automatically approve listings.</div>
+    <form id="businessForm">
+      <div class="register-grid">
+        <div><label for="ownerName">Owner / contact person *</label><input class="field" id="ownerName" required maxlength="100" placeholder="Your full name"></div>
+        <div><label for="businessName">Business name *</label><input class="field" id="businessName" required maxlength="120" placeholder="Name of your business"></div>
+        <div><label for="businessCategory">Business category *</label><select class="field" id="businessCategory" required></select></div>
+        <div><label for="businessCounty">County *</label><select class="field" id="businessCounty" required></select></div>
+        <div><label for="businessTown">Town / area *</label><input class="field" id="businessTown" required maxlength="100" placeholder="e.g. Nakuru town"></div>
+        <div><label for="businessPhone">Business phone / WhatsApp *</label><input class="field" id="businessPhone" required type="tel" maxlength="30" placeholder="e.g. 07XX XXX XXX"></div>
+        <div class="full"><label for="businessDescription">Products or services *</label><textarea class="field" id="businessDescription" required maxlength="600" placeholder="Describe what your business offers"></textarea></div>
+        <div class="full"><label><input id="publishConsent" type="checkbox" required> I confirm these details are accurate and agree that the submitted business contact details may be shared for directory review.</label></div>
+        <div class="full"><button class="btn btn-primary" type="submit">Create registration confirmation</button></div>
+      </div>
+    </form>
+    <div id="receipt" class="receipt hidden" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">BIASHARA CONNECT KENYA</div>
+  <p>Discover. Connect. Grow.</p>
+  <p>A business discovery prototype built to help customers and Kenyan businesses connect.</p>
+  <p>Listing information should be verified before publication. This site is not affiliated with any government agency.</p>
+</footer>
+
+<script>
+const counties = ["Baringo","Bomet","Bungoma","Busia","Elgeyo-Marakwet","Embu","Garissa","Homa Bay","Isiolo","Kajiado","Kakamega","Kericho","Kiambu","Kilifi","Kirinyaga","Kisii","Kisumu","Kitui","Kwale","Laikipia","Lamu","Machakos","Makueni","Mandera","Marsabit","Meru","Migori","Mombasa","Murang'a","Nairobi City","Nakuru","Nandi","Narok","Nyamira","Nyandarua","Nyeri","Samburu","Siaya","Taita-Taveta","Tana River","Tharaka-Nithi","Trans Nzoia","Turkana","Uasin Gishu","Vihiga","Wajir","West Pokot"];
+const categories = [
+{name:"Agrovet & Farm Supplies",icon:"🌱"},{name:"Barbershop & Salon",icon:"💈"},{name:"Banks & Finance",icon:"🏦"},{name:"Car Dealers & Garages",icon:"🚗"},
+{name:"Construction Companies",icon:"🏗️"},{name:"Electronics & Technology",icon:"💻"},{name:"Hardware & Building Materials",icon:"🧱"},{name:"Healthcare & Private Hospitals",icon:"🏥"},
+{name:"Hotels & Accommodation",icon:"🛏️"},{name:"Furniture Shops",icon:"🪑"},{name:"Pharmacies",icon:"💊"},{name:"Private Schools & Colleges",icon:"🏫"},
+{name:"Restaurants & Catering",icon:"🍽️"},{name:"Supermarkets & Groceries",icon:"🛒"},{name:"Timber Yards",icon:"🪵"},{name:"Transport & Logistics",icon:"🚚"},
+{name:"Clothing & Fashion",icon:"👕"},{name:"Real Estate",icon:"🏠"},{name:"Professional Services",icon:"💼"},{name:"Other Businesses",icon:"🏢"}
+];
+const demoListings = [
+{name:"Demo Furniture Centre",category:"Furniture Shops",county:"Nakuru",town:"Nakuru Town",description:"Example listing for household furniture and office desks.",phone:"254700000001",icon:"🪑"},
+{name:"Demo Lakeside Hotel",category:"Hotels & Accommodation",county:"Kisumu",town:"Kisumu City",description:"Example listing for accommodation and conference services.",phone:"254700000002",icon:"🛏️"},
+{name:"Demo Style Barbershop",category:"Barbershop & Salon",county:"Nairobi City",town:"Westlands",description:"Example listing for barbering and grooming services.",phone:"254700000003",icon:"💈"},
+{name:"Demo Tech & Electronics",category:"Electronics & Technology",county:"Mombasa",town:"Mombasa Island",description:"Example listing for phones, accessories and electronics.",phone:"254700000004",icon:"💻"},
+{name:"Demo Private Academy",category:"Private Schools & Colleges",county:"Kiambu",town:"Thika",description:"Example listing for a private learning institution.",phone:"254700000005",icon:"🏫"},
+{name:"Demo Community Hospital",category:"Healthcare & Private Hospitals",county:"Uasin Gishu",town:"Eldoret",description:"Example listing for healthcare services. Not a real hospital listing.",phone:"254700000006",icon:"🏥"},
+{name:"Demo Family Supermarket",category:"Supermarkets & Groceries",county:"Machakos",town:"Machakos Town",description:"Example listing for groceries and household products.",phone:"254700000007",icon:"🛒"},
+{name:"Demo Builders Hardware",category:"Hardware & Building Materials",county:"Kakamega",town:"Kakamega Town",description:"Example listing for cement, tools and building supplies.",phone:"254700000008",icon:"🧱"},
+{name:"Demo Timber Yard",category:"Timber Yards",county:"Nyeri",town:"Nyeri Town",description:"Example listing for timber and construction wood.",phone:"254700000009",icon:"🪵"},
+{name:"Demo Farm Input Centre",category:"Agrovet & Farm Supplies",county:"Bungoma",town:"Bungoma Town",description:"Example listing for seeds, animal feeds and farm inputs.",phone:"254700000010",icon:"🌱"},
+{name:"Demo Green Pharmacy",category:"Pharmacies",county:"Migori",town:"Migori Town",description:"Example listing for pharmacy products. Not a real pharmacy listing.",phone:"254700000011",icon:"💊"},
+{name:"Demo Fresh Restaurant",category:"Restaurants & Catering",county:"Mombasa",town:"Nyali",description:"Example listing for meals, catering and takeaway.",phone:"254700000012",icon:"🍽️"}
+];
+let activeCategory = "";
+function showDirectory(){document.getElementById("cover").classList.add("hidden");document.getElementById("directoryApp").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});}
+function showRegistration(){showDirectory();setTimeout(()=>document.getElementById("register").scrollIntoView({behavior:"smooth",block:"start"}),100);}
+function fillSelect(id, items, firstLabel){const el=document.getElementById(id);el.innerHTML=`<option value="">${firstLabel}</option>`+items.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
+function renderCategoryTiles(){const el=document.getElementById("categoryTiles");el.innerHTML=categories.map(c=>`<button type="button" class="category ${activeCategory===c.name?"active":""}" onclick="chooseCategory('${c.name.replace(/'/g,"\\'")}')"><span class="emoji">${c.icon}</span>${escapeHtml(c.name)}<br><small>Browse listings</small></button>`).join("");}
+function chooseCategory(name){activeCategory=activeCategory===name?"":name;document.getElementById("categoryFilter").value=activeCategory;renderCategoryTiles();renderListings();document.getElementById("listingGrid").scrollIntoView({behavior:"smooth",block:"start"});}
+function renderListings(){
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+ const cat=document.getElementById("categoryFilter").value;
+ const county=document.getElementById("countyFilter").value;
+ const filtered=demoListings.filter(b=>(!q||[b.name,b.category,b.county,b.town,b.description].join(" ").toLowerCase().includes(q))&&(!cat||b.category===cat)&&(!county||b.county===county));
+ document.getElementById("resultCount").textContent=`Showing ${filtered.length} demonstration listing${filtered.length===1?"":"s"}`;
+ const grid=document.getElementById("listingGrid");
+ if(!filtered.length){grid.innerHTML='<div class="empty">No matching demo listings yet. Try another search or category. More real businesses can be added after their details are confirmed.</div>';return;}
+ grid.innerHTML=filtered.map(b=>`<article class="listing"><div class="listing-top"><div class="listing-icon">${b.icon}</div><div><h3>${escapeHtml(b.name)}</h3><div class="type">${escapeHtml(b.category)}</div></div></div><span class="demo-label">DEMO LISTING — NOT VERIFIED</span><p>${escapeHtml(b.description)}</p><div class="location">📍 ${escapeHtml(b.town)}, ${escapeHtml(b.county)} County</div><div class="listing-actions"><a class="contact-btn" href="https://wa.me/${b.phone}?text=${encodeURIComponent("Hello, I found this demo listing on Biashara Connect Kenya.")}" target="_blank" rel="noopener">WhatsApp demo</a><button class="details-btn" type="button" onclick="alert('This is a fictional demonstration listing. Real business details must be verified before use.')">Details</button></div></article>`).join("");
+}
+function resetFilters(){document.getElementById("searchInput").value="";document.getElementById("categoryFilter").value="";document.getElementById("countyFilter").value="";activeCategory="";renderCategoryTiles();renderListings();}
+function init(){
+ fillSelect("categoryFilter",categories.map(c=>c.name),"All categories");
+ fillSelect("businessCategory",categories.map(c=>c.name),"Choose a category");
+ fillSelect("countyFilter",counties,"All counties");
+ fillSelect("businessCounty",counties,"Choose a county");
+ renderCategoryTiles();renderListings();
+ document.getElementById("searchInput").addEventListener("input",renderListings);
+ document.getElementById("categoryFilter").addEventListener("change",e=>{activeCategory=e.target.value;renderCategoryTiles();renderListings();});
+ document.getElementById("countyFilter").addEventListener("change",renderListings);
+ document.getElementById("businessForm").addEventListener("submit",handleRegistration);
+}
+function handleRegistration(e){
+ e.preventDefault();
+ const data={
+ owner:document.getElementById("ownerName").value.trim(),
+ name:document.getElementById("businessName").value.trim(),
+ category:document.getElementById("businessCategory").value,
+ county:document.getElementById("businessCounty").value,
+ town:document.getElementById("businessTown").value.trim(),
+ phone:document.getElementById("businessPhone").value.trim(),
+ description:document.getElementById("businessDescription").value.trim()
+ };
+ const ref="BCK-"+Date.now().toString().slice(-8);
+ const date=new Date().toLocaleString("en-KE",{dateStyle:"medium",timeStyle:"short"});
+ const receipt=document.getElementById("receipt");
+ receipt.innerHTML=`<h3>Business Registration Confirmation</h3><p>Your details have been prepared for review. This is not proof of approval or verification.</p><dl><dt>Reference number</dt><dd>${ref}</dd><dt>Business name</dt><dd>${escapeHtml(data.name)}</dd><dt>Category</dt><dd>${escapeHtml(data.category)}</dd><dt>Location</dt><dd>${escapeHtml(data.town)}, ${escapeHtml(data.county)} County</dd><dt>Contact</dt><dd>${escapeHtml(data.phone)}</dd><dt>Date prepared</dt><dd>${escapeHtml(date)}</dd><dt>Status</dt><dd><strong>Prepared — pending manual review</strong></dd></dl><div class="receipt-actions"><button class="btn btn-outline" type="button" onclick="window.print()">Print / Save receipt</button><button class="btn btn-primary" type="button" id="sendWhatsapp">Send details to WhatsApp</button></div><p class="fineprint">This confirmation exists in this browser session only. The site does not save this submission to a central database.</p>`;
+ receipt.classList.remove("hidden");
+ const message=`Biashara Connect Kenya — Business Listing Submission\nReference: ${ref}\nOwner/contact: ${data.owner}\nBusiness: ${data.name}\nCategory: ${data.category}\nLocation: ${data.town}, ${data.county} County\nPhone/WhatsApp: ${data.phone}\nDescription: ${data.description}\nStatus: Prepared for manual review.`;
+ document.getElementById("sendWhatsapp").addEventListener("click",()=>window.open("https://wa.me/254796914618?text="+encodeURIComponent(message),"_blank","noopener"));
+ receipt.scrollIntoView({behavior:"smooth",block:"start"});
+}
+init();
+</script>
+</body>
+</html>
